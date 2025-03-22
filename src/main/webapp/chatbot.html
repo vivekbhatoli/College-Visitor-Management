@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot</title>
+    <style>
+        body {
+            background: black;
+            color: #0ff;
+            font-family: Arial, sans-serif;
+        }
+        .chatbox {
+            height: 400px;
+            overflow-y: auto;
+            border: 1px solid #0ff;
+            padding: 10px;
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            background: black;
+            color: #0ff;
+            border: 1px solid #0ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="chatbox" id="chatbox">Welcome to Cyber AI!</div>
+    <input type="text" id="user-input" placeholder="Ask something...">
+    <script>
+        document.getElementById("user-input").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                let input = this.value;
+                let chatbox = document.getElementById("chatbox");
+                chatbox.innerHTML += "<br><strong>You:</strong> " + input;
+                setTimeout(() => chatbox.innerHTML += "<br><strong>AI:</strong> Thinking...", 1000);
+                this.value = "";
+            }
+        });
+    </script>
+</body>
+</html>
